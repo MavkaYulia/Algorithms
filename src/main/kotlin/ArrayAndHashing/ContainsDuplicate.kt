@@ -14,3 +14,18 @@ class ContainsDuplicate {
         return false
     }
 }
+
+class Solution {
+    fun searchInsert(nums: IntArray, target: Int): Int {
+        var temp = 0
+        for (n in nums) {
+            if (target == n) {
+                temp = nums.indexOf(n)
+            }
+            if (target > n) {
+                temp = nums.indexOf(n)
+            }
+        }
+        return temp
+    }
+}

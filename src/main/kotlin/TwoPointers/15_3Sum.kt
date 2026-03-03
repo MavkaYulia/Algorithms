@@ -6,19 +6,18 @@ class `15_3Sum` {
         nums.sort()
 
         for (i in nums.indices) {
-            val a = nums[i]
-            if (a > 0) break
-            if (i > 0 && a == nums[i - 1]) continue
+            if (nums[i] > 0) break
+            if (i > 0 && nums[i] == nums[i - 1]) continue
 
             var l = i + 1
             var r = nums.size - 1
             while (l < r) {
-                val threeSum = a + nums[l] + nums[r]
+                val threeSum = nums[i] + nums[l] + nums[r]
                 when {
                     threeSum > 0 -> r--
                     threeSum < 0 -> l++
                     else -> {
-                        res.add(listOf(a, nums[l], nums[r]))
+                        res.add(listOf(nums[i], nums[l], nums[r]))
                         l++
                         r--
                         while (l < r && nums[l] == nums[l - 1]) {
